@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fragment_createalarm_scheduleAlarmHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Радио Пляж Будильник"
+            android:textSize="24sp"
+            android:textColor="#D9B74B"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/fragment_createalarm_timePickerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_scheduleAlarmHeading">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.4"
+                android:text="Время Будильника"
+                android:textSize="20sp"
+                android:textColor="#D9B74B"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TimePicker
+                android:id="@+id/fragment_createalarm_timePicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:timePickerMode="spinner" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/fragment_createalarm_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название Будильника"
+            android:textColorHint="#D9B74B"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout" />
+
+        <CheckBox
+            android:id="@+id/fragment_createalarm_recurring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Повтор Будильника"
+            android:textColor="#D9B74B"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_title" />
+
+        <LinearLayout
+            android:id="@+id/fragment_createalarm_recurring_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_recurring">
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_checkMon"
+                android:textColor="#D9B74B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Пон" />
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_checkTue"
+                android:textColor="#D9B74B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Втр" />
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_checkWed"
+                android:textColor="#D9B74B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Срд" />
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_checkThu"
+                android:textColor="#D9B74B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Чтр" />
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_checkFri"
+                android:textColor="#D9B74B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Пят" />
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_checkSat"
+                android:textColor="#D9B74B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Суб" />
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_checkSun"
+                android:textColor="#D9B74B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вср" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/fragment_createalarm_scheduleAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Установить Будильник"
+            android:layout_marginBottom="32dp"
+            android:layout_marginHorizontal="32dp"
+            android:textColor="#D9B74B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="133dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

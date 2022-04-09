@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context="com.alexandr_yurchenko.radiobeach.SubscriptionActivity">
+
+    <com.mxn.soul.flowingdrawer_core.FlowingDrawer
+        android:id="@+id/drawerlayoutSubs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:edPosition="1"
+        app:edMenuSize="260dp"
+        app:edMenuBackground="#dddddd">
+
+        <!--content-->
+        <RelativeLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="OurPhoneNumberSubs"
+                android:text="Привязать номер"
+                android:textAlignment="center"
+                android:textColor="#FFCA1C"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:src="@drawable/menu"
+                android:onClick="MenuSubs"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:padding="4dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgRotation"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                app:cardBackgroundColor="@color/purple_200"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:id="@+id/rot"
+                    android:layout_width="260dp"
+                    android:layout_height="260dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/img" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/nameMusicSubs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgRotation"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="30dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#FFCA1C"
+                android:textSize="22sp" />
+
+            <RelativeLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_above="@id/nameRadio"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:elevation="30dp"
+                android:padding="16dp"
+                android:background="@drawable/play_pause_back"
+                app:cardCornerRadius="140dp"
+                android:layout_marginTop="40dp"
+                >
+
+                <ProgressBar
+                    android:id="@+id/subsProgress"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/playPauseSubs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/play" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/nameRadio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="6dp"
+                android:text="РАДИО ПЛЯЖ"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FFCA1C"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <!--menu-->
+        <com.mxn.soul.flowingdrawer_core.FlowingMenuLayout
+            android:id="@+id/menulayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/id_container_menu"
+                android:orientation="vertical"
+                android:background="#282C30"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Меню"
+                    android:layout_marginHorizontal="12dp"
+                    android:padding="12dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/back_line"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="FreeMusicSubs"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/music"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="Радио Пляж"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="OnlineMusicSubs"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/play_icon"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="Прямой эфир"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="HistoryMusicSubs"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/history"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="Музыка 90х"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="DeepHouse"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/deep"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="Deep House"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="Relax"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/relax"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="RELAX"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="MusicToFlash"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/flash"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="Музыка на флешку"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="Alarm"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/alarm"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="Будильник"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="Service"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/service"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="Наши услуги"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:onClick="Info"
+                    android:background="@drawable/back_menu">
+
+                    <ImageView
+                        android:src="@drawable/info"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+                    <TextView
+                        android:text="О Радио Пляж"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="12dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:textAlignment="center"
+                    android:text="Вы можете связатся с нами!\n+79782835038"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>
+    </com.mxn.soul.flowingdrawer_core.FlowingDrawer>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1030055234259",
+    "project_id": "radio-7fb8f",
+    "storage_bucket": "radio-7fb8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030055234259:android:12a8e565e4852d9a16a226",
+        "android_client_info": {
+          "package_name": "com.alexandr_yurchenko.radiobeach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030055234259-1oujunq631i1g7vefetvituodpko2pv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTG95_6qTOOATFHFopUm5yf3G6Unf5L8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030055234259-1oujunq631i1g7vefetvituodpko2pv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
