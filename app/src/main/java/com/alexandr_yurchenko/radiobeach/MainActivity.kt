@@ -30,10 +30,6 @@ import com.alexandr_yurchenko.radiobeach.model.main.RadioMain
 import com.alexandr_yurchenko.radiobeach.model.online.RadioOnline
 import com.alexandr_yurchenko.radiobeach.model.relax.RadioRelax
 import com.example.awesomedialog.*
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.mxn.soul.flowingdrawer_core.ElasticDrawer
 import com.mxn.soul.flowingdrawer_core.ElasticDrawer.OnDrawerStateChangeListener
 import com.mxn.soul.flowingdrawer_core.FlowingDrawer
@@ -41,6 +37,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
+import java.text.ParseException
 import java.text.ParsePosition
 import java.text.SimpleDateFormat
 import java.util.*
@@ -61,7 +58,8 @@ class MainActivity : AppCompatActivity() {
     private val audioUrlHistory = "https://listen7.myradio24.com/station30"
     private var currentUrl = "https://listen2.myradio24.com/1632"
 
-    private  lateinit var shared : SharedPreferences
+    private lateinit var shared: SharedPreferences
+    private lateinit var myEdit: SharedPreferences.Editor
     private lateinit var mService: RetrofitServices
     private var allow = false
 
@@ -69,11 +67,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        checkFirebase()
-
         mService = Common.retrofitService
 
         shared = getSharedPreferences("MySharedPref" , Context.MODE_PRIVATE)
+        myEdit = shared.edit()
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.INTERNET), INTERNET_PERMISSION_CODE);
@@ -113,7 +110,6 @@ class MainActivity : AppCompatActivity() {
             }
         }, 0, 10000) //put here time 1000 milliseconds=1 second
 
-
         imagePlayPause.setOnClickListener {
             if (currentUrl == audioUrlGeneral){
                 getRadioMain()
@@ -129,6 +125,26 @@ class MainActivity : AppCompatActivity() {
             }
             //rotateTheDisk()
             blinkTheDisk()
+        }
+
+        val dt = "2022-04-14" // Start date
+
+        val sdf = SimpleDateFormat("yyyy-MM-dd")
+        val c = Calendar.getInstance()
+        try {
+            c.time = sdf.parse(dt)
+            println(c.time.toString())
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        c.add(Calendar.DATE, 2)
+
+        val currentDate = Date()
+        val cal = Calendar.getInstance()
+        cal.time = currentDate
+
+        if (cal.time >= c.time){
+            allow = true
         }
     }
 
@@ -488,31 +504,6 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun checkFirebase(){
-        // Write a message to the database
-        // Write a message to the database
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("radio")
-
-        //myRef.setValue("allow")
-
-        myRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val value = dataSnapshot.getValue(String::class.java)
-                if (value == "allow"){
-                    allow = true
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                Toast.makeText(this@MainActivity, "Failed to Detect Allow",Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
     private fun getRadioRelax() {
         mService.getRadioRelax().enqueue(object : Callback<RadioRelax> {
             override fun onFailure(call: Call<RadioRelax>, t: Throwable) {
@@ -526,6 +517,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
     override fun onStop() {
         super.onStop()
         Timer().cancel()
